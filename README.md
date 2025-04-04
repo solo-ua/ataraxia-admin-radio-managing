@@ -21,3 +21,10 @@ npm install
 
 Run the project locally:
 npm run dev
+
+_________________________________________________________________________________
+
+Project Hosted on awardspace: http://ataraxia-radio-manager.scienceontheweb.net/
+_________________________________________________________________________________
+
+
