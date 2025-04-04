@@ -1,0 +1,217 @@
+.chosen-items{
+    display: grid;
+    margin-left: 1vw;
+    text-decoration: none;
+    height: 32em;
+    width: 73vw;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+[class^="mainItem-"]{
+    position: relative;
+    width: 15em;
+    margin: 0.2em;
+    padding-top: 2.5em;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: linear-gradient(50deg, hsla(180, 23%, 27%, 0.774) 0%, rgba(70, 60, 80, 0.681) 100%);
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.303);
+    /* background-color: rgba(56, 84, 93, 0.412); */
+    border: solid 2.2px rgb(165, 136, 205);
+    border-radius: 20px;
+}
+.mainItem-s{
+    height: 10em;
+}
+.mainItem-r{
+    height: 16em;
+}
+
+[class^="editData"] {
+    overflow: hidden;
+    white-space: nowrap;
+    resize: none;
+    height: 24px;
+    width: 14.4em;
+    border: solid 1.6px;
+    color: rgb(126, 173, 172);
+    background-color: transparent;
+}
+.editData-selector{
+    height: 40px;
+    width: 14.8em;
+}
+.option-s{
+    background-color: rgba(51, 50, 54, 0.734);
+}
+
+[class^="editData"]::selection{
+    background-color: rgba(72, 158, 89, 0.734);
+}
+[class^="editData"]:hover{
+    cursor: text;
+}
+[class^="editData"]:focus{
+    color: rgb(231, 255, 211);
+    outline-width: 0px;
+}
+[class^="mainItem-"]:hover{
+    background-color: rgba(84, 105, 125, 0.308);
+}
+.forbidden{
+    border: solid 1.5px rgb(228, 60, 77);
+    color: rgb(232, 104, 149);;
+}
+.forbidden:focus{
+    color: rgb(255, 152, 215);
+    outline-width: 0px;
+}
+.corner1{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.corner2{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.icon-horizontal{
+    color: black;
+    z-index: 3;
+    position: absolute;
+    border-radius: 50%;    
+    width: 25px;
+    height: 25px;
+    left: 2%;
+    background-color: rgb(182, 178, 244);
+    cursor: pointer;
+}
+.menu-scrollable-horizontal{
+    position: absolute;
+    margin-left: 0.5em;
+    top: 8px;
+    height: 1.4em;
+    width: 100px;
+}
+.menu-scrollable-horizontal:hover .icon-horizontal:nth-child(3){
+    background-color: rgb(150, 214, 167);
+    margin-left: 28px;
+}
+
+.menu-scrollable-horizontal:hover .icon-horizontal:nth-child(2){
+    background-color: rgb(164, 204, 204);
+    margin-left: -28px;
+}
+.menu-scrollable-horizontal:hover{
+    margin-left: 1.8em;
+
+}
+.expand-menu-scrollable{
+    margin-left: 2em;
+}
+.expand-icons{
+    margin-left: -28px;
+}
+.expand-icons{
+    margin-left: 28px;
+
+}
+.static-editing-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+}
+.static-editing-sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    position: absolute;
+    right: 5px;
+    scrollbar-width: none;
+    background: linear-gradient(180deg, hsla(245, 14%, 15%, 0.774) 0%, rgba(70, 60, 80, 0) 100%);
+    width: 22vw;
+    height: 32rem;
+    overflow: hidden;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.errorlog-contents{
+    background-color: rgba(240, 248, 255, 0);
+    height: 26em;
+    width: 21vw;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    background-color: rgb(30, 29, 35);
+
+}
+.button{
+    background-color: rgba(107, 92, 114, 0.296);
+    border-radius: 20px;
+    font-size: smaller;
+    color: rgb(239, 241, 245);
+    height: 3rem;
+    width: 5rem;
+    padding: 1em;
+}
+.button-discard:hover{
+    background-color: rgba(131, 85, 85, 0.729);    
+}
+.button-commit:hover{
+    background-color: rgba(84, 154, 94, 0.729);    
+}
+.note, h2{
+    color: rgb(190, 174, 228);
+    font-weight: 400;
+    font-size: 13pt;
+    font-style: normal;
+}
+h2{
+    font-weight: 200;
+}
+.button-clear:hover{
+    background-color: rgba(184, 148, 201, 0.296);
+}
+.editing-errors{
+    height: max-content;
+    scrollbar-width: none;
+    font-size: 11pt;
+    text-align: left;
+    color: #c9a9e9;
+    border: 0.2px dotted #c9a9e977;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+
+}
+@media (max-width:500px){
+    .static-editing-sidebar{
+        width: 25vw;
+        margin: 0px;
+    }
+    .selected-items{
+        width: 70vw;
+    }
+    #clear-error-log{
+        width: 60px;
+        font-size: 10pt;
+    }
+    .note{
+        font-size: 12pt;
+    }
+}

@@ -1,0 +1,66 @@
+.popupwindow-deletion{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    top: 5em;
+
+    width: 25em;
+    height: 32em;
+    margin: auto;
+    padding: 10px;
+    
+    border: 1.5px solid rgb(255, 105, 105);
+    border-radius: 50px;
+    
+    color: rgb(233, 233, 232);
+    background: linear-gradient(180deg, hsl(0, 20%, 23%) 50%, rgba(54, 9, 9, 0.759) 80%);
+    box-shadow:  3px 5px 50px 1px rgba(0, 0, 0, 0.695);
+    
+    z-index: 1;
+}
+.listToDelete{
+    width: 10em;
+    height: 12em;
+    margin: auto;
+    padding: 1em;
+    background-color: rgb(77, 37, 39);
+    box-shadow: inset 3px 3px 20px 1px rgba(0, 0, 0, 0.695);
+    
+    overflow-x: hidden;
+    scrollbar-width: none;
+
+    border-radius: 20px;
+
+}
+.selectedToDelete{
+    width: 10em;
+    color: #acacac;
+    margin-bottom: 1em;
+}
+.action-deletion{
+    margin-top: 3em;
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+}
+.confirm-deletion{
+    font-size: 10pt;
+    height: 5em;
+    width: 10.5em;
+    border-radius: 40px;
+}
+.cancel-deletion{
+    font-size: 10pt;
+    height: 5em;
+    width: 15.5em;
+    border-radius: 40px;
+}
+.bg-deletion{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(7px);  
+}

@@ -1,0 +1,65 @@
+.login-win{
+    background-color: rgb(80, 80, 80);
+    height: 25em;
+    width: 20em;
+    border-radius: 40px;
+    gap: 2em;
+    box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(10deg, hsl(291, 23%, 16%) 0%, rgba(88, 228, 225, 0) 80%);
+
+}
+.centralise{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    padding: 1em;
+}
+
+.input-lgn{
+    padding: 1em;
+    color: aliceblue;
+    background: repeating-radial-gradient(circle, rgba(164, 145, 222, 0.389),rgba(119, 91, 164, 0));
+    background-size: 500%;
+    border: none;
+    outline: none;
+}
+.error-detected{
+    border: solid 0.2px rgb(190, 23, 23);    
+    background-color: rgba(59, 15, 15, 0.601);
+}
+.error-connection{
+    border: solid 0.2px rgb(49, 49, 49);    
+    background-color: rgba(79, 79, 79, 0.601);
+}
+.input-lgn-btn:focus{
+    animation: focus 4s ease-in-out infinite both;
+}
+
+.input-lgn:focus{
+    color: rgb(255, 255, 255);
+    background-size: 100%;
+    box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.25);   
+}
+
+
+@keyframes focus{
+    0%{
+        box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.25);   
+    }
+    50%{
+        box-shadow: 6px 0px 15px 1px rgba(87, 36, 77, 0.629);   
+    }
+    100%{
+        box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.25);   
+    }
+}
+
+.login-error{
+    color: rgb(92, 70, 70);
+}
+.subtitle{
+    position: relative;
+    color: rgb(88, 64, 94);
+    top: -25px;
+}
