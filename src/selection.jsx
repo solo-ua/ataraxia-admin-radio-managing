@@ -63,6 +63,7 @@ const SelectionComponent = ({ title, fetchDataCallback, navigateToNextPage }) =>
                         name: item.name,
                         idHostedBy: item.attributes.find(attr => attr.name === 'ID of the radio hosting this station')?.value || '',
                         url: item.attributes.find(attr => attr.name === 'Stream URL')?.value || '',
+                        idStation: item.attributes.find(attr => attr.name === 'Station ID recognised by the radio host')?.value || '',
                     }));
                     console.log(updatedItems);
                     navigate(navigateToNextPage, { state: { selectedItems: updatedItems } });

@@ -44,6 +44,7 @@ const EditExistingItem = ({ item }) => {
                         name: station.name,
                         attributes: [
                             { name: 'ID of the radio hosting this station', value: station.idHostedBy },
+                            { name: 'Station ID recognised by the radio host', value: station.idStation },
                             { name: 'Stream URL', value: station.url },
                         ],
                     }));

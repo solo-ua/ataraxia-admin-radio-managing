@@ -14,7 +14,14 @@ const StationWorkspace = () => {
     let changesApplied = true; // to display the final message that the updated values were successfull
     // Destructuring the selectedItems from location.state
     const { selectedItems = [] } = location.state || {}; // the existing radio hosts
-   
+    const [stationHostMap, setStationHostMap] = useState(() => {
+        const initialMap = {};
+        selectedItems.forEach((station) => {
+            initialMap[station.idSS] = station.idHostedBy;
+        });
+        return initialMap;
+    });
+    
     const [errorProof, errorProofIs] = useState(true); // for displaying error logs
     // this is used to test the radio
     const audioRef = useRef(null); //to preview station audio
@@ -82,13 +89,16 @@ const StationWorkspace = () => {
         // updates the values before sending a put request
     const updateValues = () => {
         const items = Array.from(document.querySelectorAll('.mainItem-s'));
-        const updateStation = {
-            idSS: 0,
-            fieldsToUpdate: ['idHostedBy',],
-            newValues:[updateHostID,]
-        };
         const updatedStationData = {};
         items.forEach((item) => { 
+            const updateStation = {
+                idSS: item.id,
+                fieldsToUpdate: [],
+                newValues: []
+            };
+            // manually include the selected host
+            updateStation.fieldsToUpdate.push('idHostedBy');
+            updateStation.newValues.push(stationHostMap[item.id] || null);
             // Get textareas within the current items
             // we extract attributes of each element and organise them as valid data objects
             const attributeElements = Array.from(item.querySelectorAll('.editData')); 
@@ -101,16 +111,14 @@ const StationWorkspace = () => {
             });
             applyChanges(updateStation);
         });
-        console.log(updateStation);
-        applyChanges(updateStation);
-        console.log(changesApplied);
         if(changesApplied){
             newErrorLog((prevErrorLogs) => [...prevErrorLogs, 'Stations have been updated successfully!']);
             setTimeout(() => {
                 alert('Stations were successfully updated. You will now be redirected.')
-                navigate('/home');
+                // navigate('/home');
             }, 500);
         }
+        // console.log(updateStation);
     }
     
     // upon confirmation, the changes are applied
@@ -210,13 +218,18 @@ const StationWorkspace = () => {
                 </div>
                 <div className="fields">
                     <textarea onBlur={checkSyntax} name="name" title="Station's name" className="editData corner1" defaultValue={station.name}></textarea>
-                    <textarea onBlur={checkSyntax} name="idStation" title="Station ID" className="editData" defaultValue={station.idSS}></textarea>
+                    <textarea onBlur={checkSyntax} name="idStation" title="Station ID" className="editData" defaultValue={station.idStation}></textarea>
                     <textarea onBlur={checkSyntax} name="streamUrl" title="Streaming URL" className="editData" defaultValue={station.url}></textarea>
                     <select
                         className="editData-selector corner2"
                         name="idHostedBy"
+                        value={stationHostMap[station.idSS] || ""}
                         onChange={(e) => {
-                            updateHostID=e.target.value;
+                            const newValue = e.target.value;
+                            setStationHostMap((prev) => ({
+                                ...prev,
+                                [station.idSS]: newValue,
+                            }));
                         }}
                     >
                         {hosts.length > 0 ? (
