@@ -245,7 +245,6 @@ const StationWorkspace = () => {
         </div>
 
         <div className="static-editing-bar">
-            <button className="button-discard button" onClick={() => { navigate('/search-hosts') }}>Discard</button>
             <i className="note">These changes apply to all items</i>
             <button className="button-commit button" onClick={confirm}>Commit</button>
         </div>
